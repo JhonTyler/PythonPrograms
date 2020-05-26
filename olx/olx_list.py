@@ -12,7 +12,7 @@ def get_html(url):
 
 def write_csv(data):
     print('write_csv')
-    with open('yaca.csv', 'a') as f:
+    with open('olx_list.csv', 'a') as f:
         writer = csv.writer(f)
         writer.writerow((data['name'],
                          data['price'],

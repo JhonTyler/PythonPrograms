@@ -1,7 +1,7 @@
 import csv
 import requests
 from bs4 import BeautifulSoup
-
+import re
 
 def get_html(url):
     r = requests.get(url)
@@ -32,12 +32,23 @@ def get_page_data(html):
             'price': price
         }
         write_csv(data)
+    try:
+        next100 = soup.find('div', class_='cmc-table-listing__pagination').find('a', text=re.compile('Next')).get('href')
+    except:
+        print('Finish')
+        return False
+    return next100.strip('/')
 
 
 def main():
     url = 'https://coinmarketcap.com/'
-    for i in range(27):
-        get_page_data(get_html(url+str(i)))
+    next100 = '1'
+    while next100:  # перебор с помощью регулярных выражений
+        next100 = get_page_data(get_html(url+next100))
+        print(next100)
+    # for i in range(27):  # перебор по количеству страниц
+    #     get_page_data(get_html(url+str(i)))
+
 
 
 if __name__ == '__main__':
