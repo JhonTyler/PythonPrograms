@@ -27,14 +27,6 @@ from PyPDF2 import PdfFileReader
 #    print(page1.extractText())
 
 
-
-
-
-
-
-
-
-
 pgs = open('muzika.pdf', 'rb')
 read_pdf = PdfFileReader(pgs)
 number = read_pdf.getNumPages()
