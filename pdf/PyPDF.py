@@ -1,5 +1,4 @@
-import fitz
-
+# import fitz
 # pdf_document = "muzika.pdf"
 # doc = fitz.open(pdf_document)
 # print("Исходный документ: ", doc)
@@ -25,7 +24,6 @@ from PyPDF2 import PdfFileReader
 #    page1 = pdf.getPage(0)
 #    print(page1)
 #    print(page1.extractText())
-
 
 pgs = open('muzika.pdf', 'rb')
 read_pdf = PdfFileReader(pgs)
